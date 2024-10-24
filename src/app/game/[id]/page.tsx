@@ -5,6 +5,40 @@ import { redirect } from "next/navigation"
 import { Label } from "./components/label"
 import GameCard from "@/components/GameCard"
 import { CalendarDays, Gamepad2, Tags } from "lucide-react" 
+import { Metadata } from "next"
+
+interface PropsParams {
+    params: {
+        id: string;
+    }
+}
+
+export async function generateMetadata( { params }: PropsParams ): Promise<Metadata> {
+    try {
+        const res: GameProps = await fetch(`${process.env.NEXT_API_URL}/next-api/?api=game&id=${params.id}`)
+        .then((res) => res.json())
+        .catch(() => {
+            return {
+                title: "GamesHub - Descubra novos jogos"
+            }
+
+
+        })
+
+        return {
+            title: res.title,
+            description: `${res.description.slice(0, 100)}...`,
+            openGraph: {
+                title: res.title,
+                images: [res.image_url]
+            }
+        }
+    } catch(err) {
+        return {
+            title: "GamesHub - Descubra novos jogos"
+        }
+    }
+}
 
 async function getData(id: string) {
     try {

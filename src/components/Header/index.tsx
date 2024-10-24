@@ -67,11 +67,6 @@ export default function Header() {
                             </div>
                         </Link>
                         <Link href="/profile">
-                            <div className="px-4 py-4 hover:bg-slate-100 transition-colors border-b border-slate-100">
-                                <p className="text-slate-600 font-medium">Perfil</p>
-                            </div>
-                        </Link>
-                        <Link href="/profile">
                             <div className="px-4 py-4 hover:bg-slate-100 transition-colors flex items-center gap-2">
                                 <User size={24} className="text-slate-600" />
                                 <p className="text-slate-600 font-medium">Minha Conta</p>
