@@ -1,3 +1,4 @@
+
 import Container from "@/components/Container";
 import Image from "next/image";
 import { GameProps } from '@/utils/types/game';
