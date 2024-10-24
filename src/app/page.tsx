@@ -56,7 +56,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="w-full ">
+    <main className="w-full mt-24">
       <Container>
         <h1 className="text-center font-bold text-xl mt-8 mb-5">Separamos um jogo para você!</h1>
         <Link href={`/game/${gameHub.id}`}>
